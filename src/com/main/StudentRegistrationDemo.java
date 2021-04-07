@@ -1,7 +1,7 @@
 package com.main;
 
 import com.model.Student;
-import com.tools.MFileReader;
+import com.tools.sio.StudentDataReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,9 @@ public class StudentRegistrationDemo {
 
     public void start() {
 
-        students = MFileReader.readFromFile("student_data.txt");
+        StudentDataReader reader = new StudentDataReader("student_data.txt");
+
+        students = reader.readFromFile();
 
         while (true) {
             String process;

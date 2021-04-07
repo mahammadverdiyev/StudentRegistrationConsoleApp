@@ -1,4 +1,4 @@
-package com.tools;
+package com.tools.sio;
 
 import com.model.Student;
 
@@ -11,10 +11,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MFileReader {
-    public static List<Student> readFromFile(String fileName) {
+public class StudentDataReader implements MIStudentReader {
+
+    private final String PATH;
+
+    public StudentDataReader(String path) {
+        this.PATH = path;
+    }
+
+    @Override
+    public List<Student> readFromFile() {
         List<Student> studentList = new ArrayList<>();
-        File file = new File(fileName);
+        File file = new File(PATH);
 
         try {
             boolean fileDoesExist = file.createNewFile();

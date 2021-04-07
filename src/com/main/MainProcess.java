@@ -1,18 +1,22 @@
 
 package com.main;
 
+import static com.main.StudentRegistrationDemo.students;
 import static com.tools.pythonic.Output.println;
 
-import com.tools.MFileWriter;
+import com.tools.sio.StudentDataWriter;
 import com.tools.StudentTool;
 
 
 public class MainProcess {
+    private static final StudentDataWriter writer =
+            new StudentDataWriter("student_data.txt");
+
     public static void startProcess(String process) {
         switch (process) {
             case "q":
                 System.out.println("Programdan chixdiniz.");
-                MFileWriter.writeToFile("student_data.txt");
+                writer.writeAllToFile(students);
                 System.exit(0);       //saxla
 
             case "1":
